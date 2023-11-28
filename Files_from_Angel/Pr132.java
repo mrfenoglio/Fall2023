@@ -76,9 +76,9 @@ public class Pr132 {
 					}
 					// System.out.println("---");
 				}
+		// note will print out Integer.MAX_VALUE if the goal is unreachable
 				System.out.println(dist[m.get(line[1])]);
 			}
-		// note will print out Integer.MAX_VALUE if the goal is unreachable
 //				System.out.println(shortest[m.get(line[0])][m.get(line[1])]);
 		
 	}
