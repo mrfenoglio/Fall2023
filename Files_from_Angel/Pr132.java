@@ -34,6 +34,7 @@ public class Pr132 {
 			//System.out.println();
 			count++;
 		}
+		// bring in the paths to check
 			int numpath = scan.nextInt();
 			scan.nextLine();
 			for (int n = 0; n < numpath; n++) {
@@ -77,6 +78,7 @@ public class Pr132 {
 				}
 				System.out.println(dist[m.get(line[1])]);
 			}
+		// note will print out Integer.MAX_VALUE if the goal is unreachable
 //				System.out.println(shortest[m.get(line[0])][m.get(line[1])]);
 		
 	}
