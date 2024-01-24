@@ -1,6 +1,8 @@
 import java.io.*;
 import java.util.*;
 public class Rodrigo {
+	// this method returns the index of the unvisited city
+	// currently closest (prices) to Dallas
 	
 	static int lowest(boolean[] visited, int[] prices) {
 		int ans = -1;
@@ -11,28 +13,29 @@ public class Rodrigo {
 				min = prices[i];
 			}
 		}
-//	System.out.println("prices  "+Arrays.toString(prices));
-	//	System.out.println("i "+ans);
-		//System.out.println(Arrays.toString(visited));
-		
+	
 		return ans;
 	}
+	// this method populates prices.  When done it returns the minimal prices from Dallas to a city
 	static int[] find(String start, Map<String, Integer>map, int[][] adj) {
 		int[] prices = new int[adj.length];
 		Arrays.fill(prices, Integer.MAX_VALUE);
+		// we are starting in Dallas
 		int dal = map.get("Dallas");
 		prices[dal]=0;
 		
 		boolean[] visited = new boolean[prices.length];
 		
-		//Queue<Integer>queue = new LinkedList<>();
-		//queue.add(dal);
-		for(int i = 0; i<prices.length; i++) {
-			int check = lowest(visited, prices);
 		
+		for(int i = 0; i<prices.length; i++) {
+			// find the lowest unvisited price
+			int check = lowest(visited, prices);
+		// check to see if we're done
 			if(check==-1)
 				return prices;
+			// check is the city with the lowest remaining price
 			visited[check]= true;
+			// key algo.  update prices.
 			for(int k = 0; k<prices.length; k++) {
 				if(k!=dal && adj[check][k]!=0&& !visited[k]) {
 					prices[k]= Math.min(prices[k], prices[check]+adj[check][k]);
