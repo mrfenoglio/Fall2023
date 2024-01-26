@@ -47,7 +47,7 @@ public static void main(String[] args) throws IOException{
 		//arr stores the input for each line	
 		String[] arr = scan.nextLine().replaceAll("\\s+","").split("\\+");
 		//System.out.println(Arrays.toString(arr));
-		//bigList will store the words in arr once 
+		//bigList will store the words in arr once they have been internally sorted
 		List<String[]> bigList = new ArrayList<>();
 		
 		for(int i = 0; i<arr.length; i++) {
